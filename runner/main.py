@@ -275,15 +275,46 @@ def main():
         category_label="ti_accord_q15_",
         categories={"Strongly disagree": 1, "Neutral": 2, "Strongly agree": 3},
         group_label="mrq_used_q15",
+        groups={"Virtual reality": 1, "Video game": 2, "Mobile": 3, "Wearable device": 4, "Robot": 5},
+        use_not_applicable_group=True,
+        group_comparison_type=data_ben.GroupComparisonType.SEPARATED,
+    )
+
+    # Question 16
+    data_ben.bar_chart(
+        data=data,
+        title="Parents concern about IT",
+        question_count=1,
+        category_label="ti_preoccup_parents_q16_",
+        categories={"Yes": 1, "Not": 2, "Not sure": 3},
+        group_label="ti_preoccup_oui_q16",
         groups={
-            "Virtual reality": 1,
-            "Video game": 2,
-            "Mobile": 3,
-            "Wearable device": 4,
-            "Robot": 5,
+            "Security and confidentiality": 1,
+            "Screen time": 2,
+            "Theraupeutic effectiveness": 3,
+            "Accessibility and ease of use": 4,
+            "Influence and behavior on social development": 5,
+            "Personalization according to the child's needs": 6,
+            "Other": 7,
         },
         use_not_applicable_group=True,
         group_comparison_type=data_ben.GroupComparisonType.SEPARATED,
+    )
+
+    # Question 17
+    data_ben.single_bar_chart(
+        data=data,
+        title="Parental satisfaction regarding the use of IT",
+        category_label="ti_satis_parents",
+        categories={"Not satisfied": 1, "Neutral": 2, "Satisfied": 3},
+    )
+
+    # Question 18
+    data_ben.single_bar_chart(
+        data=data,
+        title="Quality of the relationship between parents and professionals",
+        category_label="ti_relations_parents",
+        categories={"Very good": 1, "Good": 2, "Neutral": 3, "Bad": 4, "Very bad": 5},
     )
 
     # Show all plots
