@@ -312,9 +312,9 @@ def main():
     # Question 18
     data_ben.single_bar_chart(
         data=data,
-        title="Quality of the relationship between parents and professionals",
+        title="Effect of the use of IT on the quality of therapeutic relationship with families",
         category_label="ti_relations_parents",
-        categories={"Very good": 1, "Good": 2, "Neutral": 3, "Bad": 4, "Very bad": 5},
+        categories={"Extremely beneficial": 1, "Beneficial": 2, "No significant impact": 3, "Detrimental": 4, "Extremely detrimental": 5},
     )
 
     # Show all plots
