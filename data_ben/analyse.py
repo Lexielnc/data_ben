@@ -1,6 +1,7 @@
 from enum import Enum, auto
 
 from matplotlib import pyplot as plt
+import matplotlib
 import pandas as pd
 import numpy as np
 
@@ -143,11 +144,12 @@ def bar_chart(
                 sum_category += data_by_group[group][category]
             data_by_group["Not applicable"][category] = (sum_category == 0) & has_category[category]
 
+    color_map = matplotlib.colormaps['tab10'] if len(groups.keys()) < 10 else matplotlib.colormaps['tab20']
     # Plot each group's data with an offset
     for i, group in enumerate(groups.keys()):
         offsets = x + (i - len(groups) / 2) * width  # Center bars in each category
         counts = [data_by_group[group][category].sum() for category in categories.keys()]
-        bars = ax.bar(offsets, counts, width=width, label=group)
+        bars = ax.bar(offsets, counts, width=width, label=group, color=color_map(i))
 
         # Add count labels on top of each bar
         for bar in bars:
